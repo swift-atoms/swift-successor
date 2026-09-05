@@ -1,7 +1,9 @@
 public import Addition
 
 /// The identity and fixed-width integer kernel for selecting a next value.
-public enum Successor {
+public enum Successor {}
+
+extension Successor {
 
     @inlinable
     public static func reporting<Value: FixedWidthInteger>(
