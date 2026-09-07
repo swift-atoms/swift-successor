@@ -1,6 +1,6 @@
 public import Addition
 
-/// The identity and fixed-width integer kernel for selecting a next value.
+
 public enum Successor {}
 
 extension Successor {
