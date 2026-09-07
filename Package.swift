@@ -9,8 +9,8 @@ let package = Package(
     ],
     products: [
         .library(name: "Successor", targets: ["Successor"]),
-        .library(name: "Successor Standard Library Integration", targets: ["Successor Standard Library Integration"]),
-        .library(name: "Successor Foundation Library Integration", targets: ["Successor Foundation Library Integration"]),
+
+        .library(name: "Successor Foundation Integration", targets: ["Successor Foundation Integration"]),
         .library(name: "Successor Test Support", targets: ["Successor Test Support"]),
     ],
     dependencies: [
@@ -27,20 +27,13 @@ let package = Package(
             ],
             path: "Sources/Successor"
         ),
+        
         .target(
-            name: "Successor Standard Library Integration",
+            name: "Successor Foundation Integration",
             dependencies: [
                 .target(name: "Successor"),
             ],
-            path: "Sources/Successor Standard Library Integration"
-        ),
-        .target(
-            name: "Successor Foundation Library Integration",
-            dependencies: [
-                .target(name: "Successor"),
-                .target(name: "Successor Standard Library Integration"),
-            ],
-            path: "Sources/Successor Foundation Library Integration"
+            path: "Sources/Successor Foundation Integration"
         ),
         .target(
             name: "Successor Test Support",
@@ -55,8 +48,7 @@ let package = Package(
                 .target(name: "Successor"),
                 .product(name: "Addition", package: "swift-addition"),
                 .target(name: "Successor Test Support"),
-                .target(name: "Successor Standard Library Integration"),
-                .target(name: "Successor Foundation Library Integration"),
+                .target(name: "Successor Foundation Integration"),
             ],
             path: "Tests/Successor Tests"
         ),
