@@ -3,10 +3,10 @@ import Successor
 import Testing
 
 @Suite
-struct `Successor Tests` {
+struct `Successor checks and saturates movement to the next value` {
 
     @Test
-    func `reports and throws at the greatest value`() {
+    func `Successor reports and throws at the greatest value`() {
         let report = Successor.reporting(UInt.max)
         #expect(report.value == 0)
         #expect(report.overflow)
@@ -16,7 +16,7 @@ struct `Successor Tests` {
     }
 
     @Test
-    func `exact and saturating select the next value`() throws {
+    func `Exact and saturating successor operations select the next value`() throws {
         #expect(try Successor.exact(UInt(41)) == 42)
         #expect(Successor.saturating(UInt.max) == UInt.max)
     }
