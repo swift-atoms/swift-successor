@@ -17,28 +17,28 @@ let package = Package(
         .package(
             url: "https://github.com/swift-atoms/swift-addition.git",
             branch: "main"
-        ),
+        )
     ],
     targets: [
         .target(
             name: "Successor",
             dependencies: [
-                .product(name: "Addition", package: "swift-addition"),
+                .product(name: "Addition", package: "swift-addition")
             ],
             path: "Sources/Successor"
         ),
-        
+
         .target(
             name: "Successor Foundation Integration",
             dependencies: [
-                .target(name: "Successor"),
+                .target(name: "Successor")
             ],
             path: "Sources/Successor Foundation Integration"
         ),
         .target(
             name: "Successor Test Support",
             dependencies: [
-                .target(name: "Successor"),
+                .target(name: "Successor")
             ],
             path: "Tests/Support"
         ),
@@ -56,14 +56,15 @@ let package = Package(
 )
 
 for target in package.targets where ![.system, .binary, .plugin, .macro].contains(target.type) {
-    target.swiftSettings = (target.swiftSettings ?? []) + [
-        .strictMemorySafety(),
-        .enableUpcomingFeature("ExistentialAny"),
-        .enableUpcomingFeature("InternalImportsByDefault"),
-        .enableUpcomingFeature("MemberImportVisibility"),
-        .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
-        .enableUpcomingFeature("InferIsolatedConformances"),
-        .enableExperimentalFeature("Lifetimes"),
-        .treatAllWarnings(as: .error),
-    ]
+    target.swiftSettings =
+        (target.swiftSettings ?? []) + [
+            .strictMemorySafety(),
+            .enableUpcomingFeature("ExistentialAny"),
+            .enableUpcomingFeature("InternalImportsByDefault"),
+            .enableUpcomingFeature("MemberImportVisibility"),
+            .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
+            .enableUpcomingFeature("InferIsolatedConformances"),
+            .enableExperimentalFeature("Lifetimes"),
+            .treatAllWarnings(as: .error),
+        ]
 }

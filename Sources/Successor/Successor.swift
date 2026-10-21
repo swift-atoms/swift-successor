@@ -1,6 +1,5 @@
 public import Addition
 
-
 public enum Successor {}
 
 extension Successor {
